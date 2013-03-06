@@ -3,9 +3,9 @@
 (define (halve x) (/ x 2))
 (define (double x) (* x 2))
 
-(define (my-product sum b a)
-  (cond ((= a 0) sum)
-        ((even? a) (my-product sum (double b) (halve a)))
-        (else (my-product (+ sum b) b (- a 1)))))
+(define (my-product b a)
+  (cond ((= a 0) 0)
+        ((even? a) (double (my-product b (halve a))))
+        (else (+ b (my-product b (- a 1))))))
 
-(my-product 0 5 5)
+(my-product 4 4)
