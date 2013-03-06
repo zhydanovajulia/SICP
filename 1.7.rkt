@@ -21,10 +21,11 @@
       (sqrt-iter (improve guess x) guess x)))
 
 (define (sqrt x)
-  (sqrt-iter 1.0 0 x))
+  (cond ((< x 0) "error")
+        (else (sqrt-iter 1.0 0 x))))
 
 
-(sqrt 0.0) 
+(sqrt -2) 
 (sqrt 0.0000001)
 (sqrt 100000000000)
 
