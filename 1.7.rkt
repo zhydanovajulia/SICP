@@ -2,6 +2,7 @@
 (define (square x)
   (* x x))
 (define (good-enough guess prev-guess x)
+  (display (/ (abs (- guess prev-guess )) guess))
   ;Видно, что при такой погрешности результаты становятся более точными для мелких чисел. На большие числа это не влияет.
   (< (/ (abs (- guess prev-guess )) guess) 0.001))
 
@@ -20,10 +21,12 @@
       (sqrt-iter (improve guess x) guess x)))
 
 (define (sqrt x)
-  (sqrt-iter 1.0 0 x))
+  (cond ((or (= x 0) (= x 1)) x)
+        (else (sqrt-iter 1.0 0 x))))
 
-(sqrt 0.0000001)
-(sqrt 100000000000)
+(sqrt 1.0) 
+;(sqrt 0.0000001)
+;(sqrt 100000000000)
 
 ;;good-enough? 
 ;sqrt(0.0000001) = 0.03125106561775382
