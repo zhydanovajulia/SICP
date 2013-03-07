@@ -7,4 +7,8 @@
         ((even? a) (my-product-iter sum (double b) (halve a)))
         (else (my-product-iter (+ sum b) b (- a 1)))))
 
-(my-product-iter 0 4 5)
+(define (product x y)
+  (cond ((> x y) (my-product-iter 0 x y))
+        (else (my-product-iter 0 y x))))
+
+(product 85 4)

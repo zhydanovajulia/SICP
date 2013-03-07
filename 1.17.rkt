@@ -8,4 +8,9 @@
         ((even? a) (double (my-product b (halve a))))
         (else (+ b (my-product b (- a 1))))))
 
-(my-product 4 4)
+(define (product x y)
+  (cond ((> x y) (my-product x y))
+        (else (my-product y x))))
+
+(product 4 85)
+
